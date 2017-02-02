@@ -13,6 +13,10 @@ class ListaCarrosViewController: UIViewController, UITableViewDataSource,UITable
     @IBOutlet var tableView : UITableView!
     @IBOutlet var progress : UIActivityIndicatorView!
     
+    //Inserido para salvar prefencias 
+    
+    @IBOutlet var segmentControl: UISegmentedControl!
+    
     var carros: Array<Carro> = []
     
     // Tipo do carro
@@ -48,6 +52,22 @@ class ListaCarrosViewController: UIViewController, UITableViewDataSource,UITable
 
         // Busca carros
         self.buscarCarros()
+        
+        //Recupara o tipo salvo nas preferências
+        
+        let idx = Prefs.getValue(chave: "tipoIdx")
+        let s = Prefs.getString(chave: "tipoString")
+        
+        if(s != nil) {
+            
+            // Como a String é opcional precisamos testar antes
+            
+            self.tipo = s!
+            
+        }
+        
+        self.segmentControl.selectedSegmentIndex = idx
+        
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -110,6 +130,10 @@ class ListaCarrosViewController: UIViewController, UITableViewDataSource,UITable
         default:
             self.tipo = "luxo"
         }
+        
+        // Salva o tipo nas prefencias
+        Prefs.setInt(valor: idx, chave: "tipoIdx")
+        Prefs.setString(valor: tipo, chave: "tipoString")
 
         // Buscar os carros pelo tipo selecionado (classico, esportivo, luxo)
         self.buscarCarros()
