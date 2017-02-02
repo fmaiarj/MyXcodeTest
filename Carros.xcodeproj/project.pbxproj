@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E89929D1E43F03600EB3E74 /* Prefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E89929C1E43F03600EB3E74 /* Prefs.swift */; };
 		DD013FB719FC4ED200303133 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD013FB619FC4ED200303133 /* Launch Screen.xib */; };
 		DD1EA31B1DA997930075D92C /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1EA31A1DA997930075D92C /* String+Extensions.swift */; };
 		DD36A82B197027A000FBBB40 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD36A82A197027A000FBBB40 /* AppDelegate.swift */; };
@@ -55,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5E89929C1E43F03600EB3E74 /* Prefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prefs.swift; sourceTree = "<group>"; };
 		DD013FB619FC4ED200303133 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		DD1EA31A1DA997930075D92C /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		DD36A825197027A000FBBB40 /* Carros.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Carros.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -249,6 +251,7 @@
 				DDED7301197D81F6006A9C46 /* StringUtils.swift */,
 				DD1EA31A1DA997930075D92C /* String+Extensions.swift */,
 				DDED7302197D81F6006A9C46 /* Utils.swift */,
+				5E89929C1E43F03600EB3E74 /* Prefs.swift */,
 			);
 			name = Utils;
 			path = Classes/Utils;
@@ -431,6 +434,7 @@
 				DDED7316197D81F6006A9C46 /* StringUtils.swift in Sources */,
 				DDED7314197D81F6006A9C46 /* DownloadImageView.swift in Sources */,
 				DDED731C197D81F6006A9C46 /* ListaCarrosViewController.swift in Sources */,
+				5E89929D1E43F03600EB3E74 /* Prefs.swift in Sources */,
 				DDED731A197D81F6006A9C46 /* CarroCell.swift in Sources */,
 				DDED7322197D8231006A9C46 /* MyNavigationController.swift in Sources */,
 				DDED7310197D81F6006A9C46 /* Carro.swift in Sources */,
