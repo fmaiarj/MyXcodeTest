@@ -55,7 +55,7 @@ class ListaCarrosViewController: UIViewController, UITableViewDataSource,UITable
         
         //Recupara o tipo salvo nas preferências
         
-        let idx = Prefs.getValue(chave: "tipoIdx")
+        let idx = Prefs.getInt(chave: "tipoIdx")
         let s = Prefs.getString(chave: "tipoString")
         
         if(s != nil) {
@@ -65,6 +65,7 @@ class ListaCarrosViewController: UIViewController, UITableViewDataSource,UITable
             self.tipo = s!
             
         }
+       
         
         self.segmentControl.selectedSegmentIndex = idx
         
