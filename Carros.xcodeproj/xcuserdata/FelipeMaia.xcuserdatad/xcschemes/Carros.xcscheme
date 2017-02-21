@@ -38,6 +38,26 @@
                ReferencedContainer = "container:Carros.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "DD36A831197027A000FBBB40"
+               BuildableName = "Carros.xctest"
+               BlueprintName = "CarrosTests"
+               ReferencedContainer = "container:../../../../swift2/cap07-tabs/Carros/Carros.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "DD36A831197027A000FBBB40"
+               BuildableName = "Carros.xctest"
+               BlueprintName = "CarrosTests"
+               ReferencedContainer = "container:../../../../swift2/cap14-mapas-gps/Carros-MapasGPS/Carros.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

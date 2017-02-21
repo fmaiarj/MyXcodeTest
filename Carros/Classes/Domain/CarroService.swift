@@ -10,6 +10,75 @@ import Foundation
 
 class CarroService {
     
+    class func getCarrosByTipo(tipo: String, callback: (carros:Array<Carro>, error:NSError!) -> Void) {
+        
+        var db = CarroDB()
+        
+        //Busca os carros do banco de dados
+        
+        let carros = db.getCarrosByTipo(tipo: tipo)
+        
+        db.close()
+        
+        // Se existir no banco de dados retorna
+        
+        if(carro.count > 0) {
+            //retorna carros pela função de retorno (callback)
+            
+            callback(carros:carros, error: nil)
+            print("Retornando carros \(tipo) do banco")
+            return
+        }
+        
+        // Prepara a requisição para o web service
+        
+        let http = NSURLSession.sharedSession()
+        
+        let url = NSURL(string: "http://livrodoiphone.com.br/carros/carros_" + tipo + ".json")!
+        
+        let task = http.dataTaskWithURL(url, completionHandler: {
+            (data: NSData?, response: NSURLResponse?, error:NSError?) -> void in
+            
+            if(error != nil) {
+                callback([], error)
+            }else{
+                //parser JSON
+                let carros = CarroService.parserJson(data!)
+                
+                if(carros.count > 0) {
+                    //Salva os carros no banco de dados
+                    db = CarroDB()
+                    // Deleta os carros antigos por tipo
+                    db.deleteCarros(tipo: tipo)
+                    
+                    for c in carros {
+                        //Salva o tipo do carro
+                        c.tipo = tipo
+                        //Salva o carro no banco
+                        db.save(carro: c)
+                    }
+                    
+                    db.close()
+                }
+                
+                // Para retornar os dados pela função, vamos utilizar a Thread principal
+                
+                dispatch_sync(dispatch_get_main_queue(), {
+                    
+                    
+                    callback(carros:carros, error: nil)
+                    
+                })
+            }
+            
+        })
+        
+        task.resume()
+        
+        
+    }
+    
+    
     // Busca por os carros pelo tipo: esportivos, clássicos ou luxo
     class func getCarrosByTipoFromFile(_ tipo: String) -> Array<Carro> {
         let file = "carros_" + tipo

@@ -38,6 +38,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window!.rootViewController = tabBarController
 
         self.window!.makeKeyAndVisible()
+        
+        
+        // Cria tablelas no banco de dados
+        
+        let db = CarroDB()
+        db.createTables()
+        db.close()
+        
         return true
     }
 
